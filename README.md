@@ -1,2 +1,2 @@
 # Product_Management_app
-Managing different products with Django
+Product Management of different products with Python using Django Framework
