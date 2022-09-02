@@ -1,0 +1,52 @@
+{% extends 'showProduct.html' %}
+
+
+{% block content %}
+
+
+    <div class="container">
+
+
+        <div class="row justify-content-center m-2">
+
+            
+
+
+            <div class="col-md-4">
+
+
+{% if products %}
+
+            {% for product in products %}
+
+                <div class="col-md-4">
+                    <div class="card m-3 p-2" style="width: 18rem; height: 33rem; box-shadow: 4px 4px #ff5089; border-radius: 25px 15px;">
+                        <img src="{{ product.image.url }}" style="height: 300px; width: 200px;"  class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h4 style="font-size: 17px;" class="card-title mt-1">{{ product.name }}</h4>
+                            <h3 style="color: #990200" class="card-subtitle mt-1">${{ product.price }}</h3>
+                            <hr>
+                            <p style="font-size: 13px;" class="btn btn-warning"><b>{{ product.category.name }}</b></p>
+                            <p style="font-size: 13px;" class="cart-text mt-1">{{ product.created_at }}</p>                
+                        </div>
+                        <span><a href="{% url 'product' product.pk  %}" style="background-color: #5707b3;" class="btn btn-primary m-1">Detail</a></span>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+            {% else %}
+                 <p>No Products </p>
+            {% endif %}	
+</div>
+        </div>
+
+
+       
+     
+
+
+    </div>
+
+{% endblock %}
+
